@@ -36,29 +36,25 @@
         {{#trips}}
         <li>
             <form method="POST" action="/trips/add-trip/delete-trip"></form>
-                <div class="tripContainer">
+            <a href="/trips/{{tripId}}"><div class="tripContainer">
 
-                    <div class="tripInfo">
-                        <h3>{{title}}</h3>
-                        <div id="dateInfo">
-                            <h4 class="dates"><strong>From:</strong></h4>
-                            <h4 class="dates"> {{departureDate}}</h4>
-                            <h4 class="dates"><strong>To:</strong> </h4>
-                            <h4 class="dates">{{returnDate}}</h4>
-                        </div>
-                        <h4>{{continent}}</h4>
-                        <input type="hidden" value="{{tripId}}" name="tripId" id="">
-                       
-                        <button id="delete">Delete</button>
+                <div class="tripInfo">
+                    <h3>{{title}}</h3>
+                    <div id="dateInfo">
+                        <h4 class="dates"><strong>From:</strong></h4>
+                        <h4 class="dates"> {{departureDate}}</h4>
+                        <h4 class="dates"><strong>To:</strong> </h4>
+                        <h4 class="dates">{{returnDate}}</h4>
                     </div>
-                    <div><img id="tripImage" src="{{imageUrl}}" alt=""></div>
-                    <div class="form-group">
-                        <label for="">Comment</label>
-                        <textarea name="comment" id="comment" class="form-control"></textarea>
+                    <h4>{{continent}}</h4>
+                    <input type="hidden" value="{{tripId}}" name="tripId" id="">
 
-                    </div>
+                    <button id="delete">Delete</button>
                 </div>
-
+                <div><img id="tripImage" src="{{imageUrl}}" alt=""></div>
+                
+            </div>
+        </a>
 
             </form>
         </li>

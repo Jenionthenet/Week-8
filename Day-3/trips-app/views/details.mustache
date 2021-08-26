@@ -1,0 +1,31 @@
+<html>
+    <head>
+        {{title}}
+    </head>
+    <body>
+        <h1>{{title}}</h1>
+        <h4>{{departureDate}}</h4>
+        <h4>{{returnDate}}</h4>
+        <img src="{{imageUrl}}" alt="">
+        <form action="/comments/add-comment" method="POST">
+            <div class="form-group">
+                <label for="">Comment</label>
+                <input type="text" name="title" placeholder="Enter Comment Title" id="">
+                <input type="hidden" value="{{tripId}}">
+                <textarea name="comment" id="comment" class="form-control"></textarea>
+                <button>Submit</button>
+            </div>
+
+        </form>
+<ul>
+    {{#comments}}
+    <li>
+        <h2>{{title}}</h2>
+        <h4>{{body}}</h4>
+
+    </li>
+    {{/comments}}
+</ul>
+
+    </body>
+</html>
