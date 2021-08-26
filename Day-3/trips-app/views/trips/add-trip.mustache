@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    {{bootstrapStyleLink}}
+    <title>{{userName}}'s Trips Page</title>
+</head>
+
+<body>
+    {{> menu}}
+    <h1>Welcome {{userName}} to your trips page!</h1>
+    <h1 id="title">Add Trip</h1>
+
+    <form method="POST" action="/trips/add-trip">
+        <div id="inputDiv">
+            <input type="text" placeholder="Enter title" name="title" />
+            <input type="text" placeholder="Enter image Url" name="imageUrl" />
+            <input type="date" name="departureDate" />
+            <input type="date" name="returnDate" />
+            <select name="continent" id="continentDropDown">
+                <option value="" selected disabled hidden>Continent</option>
+                <option value="africa">Africa</option>
+                <option value="antarctica">Antarctica</option>
+                <option value="asia">Asia</option>
+                <option value="australia">Australia</option>
+                <option value="europe">Europe</option>
+                <option value="northAmerica">North America</option>
+                <option value="southAmerica">South America</option>
+            </select>
+            <button>Enter</button>
+        </div>
+    </form>
+
+    <h1>Trips</h1>
+    <h3>Total Number of Trips: {{totalTrips}}</h3>
+    <ul>
+        {{#trips}}
+        <li>
+            <form method="POST" action="/trips/add-trip/delete-trip"></form>
+                <div class="tripContainer">
+
+                    <div class="tripInfo">
+                        <h3>{{title}}</h3>
+                        <div id="dateInfo">
+                            <h4 class="dates"><strong>From:</strong></h4>
+                            <h4 class="dates"> {{departureDate}}</h4>
+                            <h4 class="dates"><strong>To:</strong> </h4>
+                            <h4 class="dates">{{returnDate}}</h4>
+                        </div>
+                        <h4>{{continent}}</h4>
+                        <input type="hidden" value="{{tripId}}" name="tripId" id="">
+                       
+                        <button id="delete">Delete</button>
+                    </div>
+                    <div><img id="tripImage" src="{{imageUrl}}" alt=""></div>
+                    <div class="form-group">
+                        <label for="">Comment</label>
+                        <textarea name="comment" id="comment" class="form-control"></textarea>
+
+                    </div>
+                </div>
+
+
+            </form>
+        </li>
+
+        {{/trips}}
+    </ul>
+    </div>
+    {{>bootstrapScripts}}
+</body>
+
+</html>
